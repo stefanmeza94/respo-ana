@@ -2,32 +2,34 @@
 
 // burger btn drop-down menu
 const burgerTablet = document.querySelector("#burger");
-const itemsMenu = document.querySelector(".items-menu");
+const overlay = document.querySelector(".overlay");
+const mobileNav = document.querySelector(".mobile-nav");
 
 // show menu on burger button click
 burgerTablet.addEventListener("click", toggleMenu);
 
 function toggleMenu(e) {
-    e.preventDefault();
-    e.stopPropagation();
+  e.preventDefault();
+  e.stopPropagation();
 
-    itemsMenu.classList.toggle("open");
-    document.querySelector("body").style.background = "rgba(43, 43, 43, .6)";
+  mobileNav.classList.toggle("active");
+  overlay.classList.toggle("active");
+  // document.querySelector("body").style.background = "rgba(43, 43, 43, .6)";
 }
 
- // hide menu on body click
-document.querySelector("body").addEventListener("click", function() {
+// hide menu on body click
+document.querySelector("body").addEventListener("click", function () {
+  itemsMenu.classList.remove("open");
+});
+
+itemsMenu.addEventListener("click", function (e) {
+  e.stopPropagation();
+});
+
+document.addEventListener("keydown", function (e) {
+  if (e.code === "Escape") {
     itemsMenu.classList.remove("open");
-});
-
-itemsMenu.addEventListener("click", function(e){
-    e.stopPropagation();
-});
-
-document.addEventListener("keydown", function(e){
-    if(e.code === "Escape") {
-        itemsMenu.classList.remove("open");
-    }
+  }
 });
 
 // Function 2
@@ -41,11 +43,11 @@ const amount = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let sum = 2999;
 
 function addToCart(e) {
-    addBtn.addEventListener("click", function() {
-        for (let i= 1; i<amount.length; i++) {
-        sum *= amount[i];
+  addBtn.addEventListener("click", function () {
+    for (let i = 1; i < amount.length; i++) {
+      sum *= amount[i];
 
-       priceTotal.innerText = e.target.value; 
+      priceTotal.innerText = e.target.value;
     }
-    });
+  });
 }

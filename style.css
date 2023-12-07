@@ -11,6 +11,7 @@
 body {
     margin: 0;
     background: #FAFAFA;
+    position: relative;
 }
 
 .container-fluid {
@@ -47,6 +48,10 @@ header .header-content {
     align-items: center;
 }
 
+/* #shoppingCart {
+    margin-left: auto;
+} */
+
 #burger {
     display: none;
 }
@@ -55,9 +60,9 @@ header .header-content .show-desktop {
     display: block;
 }
 
-header .header-content .show-desktop #burger {
+/* header .header-content .show-desktop #burger {
     display: block;
-}
+} */
 
 header .header-content .hide-small {
     display: none;
@@ -74,11 +79,65 @@ header .header-content nav {
     padding: 0; */
 }
 
-.container-fluid .hamubrgerLogoWarpper {
+.mobile-nav{
+    display: none;
+    position: absolute;
+    top: 97px;
+    right: 0;
+    left: 0;
+    background: white;
+    z-index: 2;
+}
+
+
+.overlay {
+    display:none;
+    position: absolute;
+    top: 97px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.4)
+}
+
+.mobile-nav.active, .overlay.active {
+    display: block;
+}
+
+.items-menu {
+    /* border: 2px solid black; */
+    padding: 67px 40px;
     display: flex;
     align-items: center;
-    gap: 42px;
+    justify-content: space-between;
+    gap: 10px;
+
 }
+
+.items-menu .gray-bckg {
+    max-width:223px;
+    height: 165px;
+    flex-grow: 1;
+    text-align: center;
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+
+.mobile-nav-pictures {
+    margin-top: -50px;
+    width: 80px;
+    height: 104px;
+    /* box-shadow: 0 100px 50px 20px rgba(0, 0, 0, 0.1);  */
+}
+
+.gray-bckg p {
+    margin-top: 30px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+
 
 header .header-content ul {
     display: flex;
@@ -135,11 +194,11 @@ header .container-fluid .header-content #shoppingCart a:hover img {
     /* border: 2px solid red; */
 }
 
-#itemSection .headphones-item .image-wrapper .main-image{
-    width: 100%;
+.main-image{
+    max-width: 100%;
 }
 
-#itemSection .items-menu {
+/* #itemSection .items-menu {
     display: none;
     position: fixed;
     top: 0;
@@ -150,7 +209,7 @@ header .container-fluid .header-content #shoppingCart a:hover img {
     background: rgba(43, 43, 43, .8);
     opacity: 0;
     transition: all .3s;
-}
+} */
 
 #itemSection .items-menu.open {
     opacity: 1;
@@ -168,13 +227,14 @@ header .container-fluid .header-content #shoppingCart a:hover img {
     /* gap: 124.5px; */
 }
 
-#itemSection .headphones-item img {
-    max-width: 100%;
+/* #itemSection .headphones-item .main-image {
+    width: 540px;
+    height: 560px;
     margin-left: 0;
-}
+} */
 
 #itemSection .headphones-item aside {
-    min-width: 50%;
+    /* min-width: 50%; */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -200,7 +260,7 @@ header .container-fluid .header-content #shoppingCart a:hover img {
     margin-bottom: 32px;
 } 
 
-#itemSection .headphones-item aside .about-item #paragraph {
+#paragraph {
     color: var(---black-color);
     font-size: 15px;
     font-weight: 500;
@@ -211,7 +271,7 @@ header .container-fluid .header-content #shoppingCart a:hover img {
     max-height: 407px;
 }
 
-#itemSection .headphones-item aside .about-item #price {
+#price {
     color: var(---black-color);
     font-size: 18px;
     font-weight: 700;
@@ -332,7 +392,7 @@ header .container-fluid .header-content #shoppingCart a:hover img {
     /* margin-right: 125px; */
 }
 
-#itemDescription .description .features h2 {
+.features h2 {
     margin-bottom: 32px;
     color: var(---black-color);
     font-size: 32px;
@@ -385,7 +445,7 @@ header .container-fluid .header-content #shoppingCart a:hover img {
     margin-bottom: 0;
 }
 
-#itemDescription .description .in-the-box ul li span {
+ .in-the-box ul li span {
     margin-right: 24px;
     color: var(---orange-color);
     opacity: 1;
@@ -393,13 +453,26 @@ header .container-fluid .header-content #shoppingCart a:hover img {
 }
 
 /* Responsive Styles */ 
+/* Responsive Styles for Tablet (768px) */
 @media (max-width: 768px) {
     #burger {
         display: block;
+        margin-right: 42px;
+        cursor: pointer;
     }
+
+    #shoppingCart {
+    margin-left: auto;
+    }
+
     .nav {
         display: none;
     }
+
+ #itemDescription {
+     margin-bottom: 0;
+
+ }
 
     #itemDescription .description {
         flex-direction: column;
@@ -409,7 +482,7 @@ header .container-fluid .header-content #shoppingCart a:hover img {
         width: 100%;
     }
 
-    #itemDescription .description .in-the-box {
+    .in-the-box {
         flex-direction: row;
         gap: 11px    
     }
@@ -419,6 +492,10 @@ header .container-fluid .header-content #shoppingCart a:hover img {
         margin: 0;
     }
 
+    #itemSection .headphones-item {
+        gap: 69.5px;
+    }
+
     .main-image {
         width: 281px;
         height: 480px;
@@ -426,8 +503,89 @@ header .container-fluid .header-content #shoppingCart a:hover img {
 
     #itemSection .headphones-item aside .about-item h1 {
         font-size: 28px;
+        margin-bottom: 24px;
+    }
+    #itemSection .headphones-item aside .about-item h4 {
+        font-size: 12px;
+    }
+
+    #paragraph {
+        margin-bottom: 24px;
     }
 }
+
+/* Responsive Styles for Mobile (375px) */
+@media (max-width: 450px) {
+    #burger {
+        margin-right: 0;
+    }
+
+
+    #shoppingCart {
+        margin-left: 0;
+    }
+
+    #itemSection .headphones-item {
+        flex-direction: column;
+    }
+
+    .main-image {
+        width: 327px;
+        height: 327px;      
+    }
+
+    #itemSection {
+        margin-top: 65px;
+    }
+    #itemSection .headphones-item {
+        gap: 32px;
+    }
+
+    #itemSection .headphones-item aside .about-item h4 {
+        margin: 0;
+        margin-bottom: 24px;
+        font-size: 14px;
+    }
+
+    #price {
+        margin-bottom: 31px;
+    }
+
+    #itemDescription {
+        margin-top: 88px;
+        /* margin-bottom: 309px; */
+    }
+
+    .features h2 {
+        margin: 0;
+        margin-bottom: 24px;
+        font-size: 24px;
+    }
+
+    .features p {
+        margin: 0;
+    }
+
+    #itemDescription .description {
+        gap: 88px;
+    }
+
+    .in-the-box {
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 309px;
+    }
+    .items-menu{
+        flex-direction: column;
+        gap: 50px;
+        align-items: stretch;
+    }
+
+    .items-menu .gray-bckg {
+        max-width: 100%;
+    }
+}
+
 @media screen and (max-width: 1568px) {
     #itemSection .headphones-item {
         /* max-width: 818px; */
