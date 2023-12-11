@@ -9,17 +9,33 @@ const addBtn = document.getElementById("addBtn");
 let price = document.getElementById("price");
 let amountValue = document.getElementById("amount");
 
-addBtn.addEventListener("click", function (e) {
-  const mulitplyByAmount = Number(amountValue.textContent) + 1;
-  const tempPrice = Number(price.textContent);
-  let multiplicationResult = mulitplyByAmount * tempPrice;
+// number format to usd
+// function formatUSD(value) {
+//   return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(value);
+// }
 
-  amountValue.textContent = mulitplyByAmount;
-  price.textContent = multiplicationResult;
+const defaultValue = 2999;
+let quantity = 1;
+let currentPrice = defaultValue * quantity;
+
+// price.innerText = formatUSD(currentPrice);
+price.innerText = currentPrice;
+amountValue.innerText = quantity;
+
+addBtn.addEventListener("click", function (e) {
+  quantity++;
+  currentPrice = defaultValue * quantity;
+  price.innerText = currentPrice;
+  amountValue.innerText = quantity;
 });
 
 subtractBtn.addEventListener("click", function (e) {
-  console.log("subract");
+  if (defaultValue === currentPrice) return;
+
+  quantity--;
+  currentPrice = currentPrice - defaultValue;
+  price.innerText = currentPrice;
+  amountValue.innerText = quantity;
 });
 
 // show menu on burger button click
@@ -27,7 +43,6 @@ burgerTablet.addEventListener("click", toggleMenu);
 
 function toggleMenu(e) {
   e.preventDefault();
-  e.stopPropagation();
 
   mobileNav.classList.toggle("active");
   overlay.classList.toggle("active");

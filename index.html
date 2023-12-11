@@ -23,7 +23,20 @@
     <header>
       <div class="container-fluid header-content">
         <div href="#" id="burger">
-          <img src="assets/images/burger-menu.svg" className="burger-icon" />
+          <!-- <img src="./assets/images/burger-menu.svg" class="burger-icon" /> -->
+          <svg
+            width="16"
+            height="15"
+            viewBox="0 0 16 15"
+            xmlns="http://www.w3.org/2000/svg"
+            class="burger-icon"
+          >
+            <g id="Group">
+              <rect id="Rectangle" width="16" height="3" />
+              <rect id="Rectangle Copy" y="6" width="16" height="3" />
+              <rect id="Rectangle Copy 2" y="12" width="16" height="3" />
+            </g>
+          </svg>
         </div>
         <!-- <div class="hide-small">
 
@@ -104,13 +117,13 @@
               headphone experience by reproducing the balanced depth and precision of studio-quality sound.
             </p>
 
-            <p id="price">2999</p>
+            <p>$ <span id="price"></span></p>
           </div>
 
           <div id="cartButtons">
             <div class="amount-btns">
               <button id="subtractBtn">-</button>
-              <span id="amount">1</span>
+              <span id="amount"></span>
               <button id="addBtn">+</button>
             </div>
 
@@ -143,11 +156,11 @@
           <h2>in the box</h2>
 
           <ul>
-            <li><span>1x</span>Headphone Unit</li>
-            <li><span>2x</span>Replacement Earcups</li>
-            <li><span>1x</span>User Manual</li>
-            <li><span>1x</span>3.5mm 5m Audio Cable</li>
-            <li><span>1x</span>Travel Bag</li>
+            <li class="in-the-box-list"><span>1x</span>Headphone Unit</li>
+            <li class="in-the-box-list"><span>2x</span>Replacement Earcups</li>
+            <li class="in-the-box-list"><span>1x</span>User Manual</li>
+            <li class="in-the-box-list"><span>1x</span>3.5mm 5m Audio Cable</li>
+            <li class="in-the-box-list"><span>1x</span>Travel Bag</li>
           </ul>
         </div>
       </div>
